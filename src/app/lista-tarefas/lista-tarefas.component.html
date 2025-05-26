@@ -1,1 +1,27 @@
-<p>lista-tarefas works!</p>
+<div class="container">
+  <h2>Lista de tarefas</h2>
+
+  <input 
+  [(ngModel)] ="novaTarefa"
+  (keyup.enter)="adicionarTarefa()"
+  placeholder="Digite uma nova tarefa"
+  />
+  <button (click)="adicionarTarefa()">Adicionar</button>
+
+
+  
+  <ul>
+    <li
+        
+        *ngFor="let tarefa of tarefas; index as i"
+        [class.completed]="tarefa.completed"
+    
+    >
+        <span (click)="alterar(i)">
+            {{ tarefa.title }}
+        </span>
+        <button (click)="removerTarefa(i)">Remover</button>
+
+    </li>
+  </ul>
+</div>
